@@ -1,0 +1,121 @@
+﻿@using IMDBApp.Models;
+@model List<MovieReview>
+
+
+    <div style="margin-top:30px">
+        <table style="width:1140px;border:2px solid">
+            <thead>
+                <tr style="background-color:black">
+                    <th style="color:white">Name</th>
+                    <th style="color:white">Release Year</th>
+                    <th style="color:white">Genre</th>
+                    <th style="color:white">Performance</th>
+                    <th style="color:white">Direction</th>
+                    <th style="color:white">Editing</th>
+                    <th style="color:white">Writing</th>
+                    
+                    <th style="color:white">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Count > 0)
+                {
+                    for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr style="width:1080px;">
+                            <td>
+
+                                <label style="width:100px;"> @Model[i].MovieName</label>
+                            </td>
+                            <td>
+
+                                <label style="width:100px"> @Model[i].ReleaseYear</label>
+
+                            </td>
+                            <td>
+                                @if (Model[i].ActionStatus == "Edit")
+                                {
+                                    @Html.TextBoxFor(model => Model[i].genre, new { Style = "width:100px" })
+
+                                }
+                                else
+                                {
+                                    <label style="width:100px">@Model[i].genre</label>
+                                }
+                            </td>
+                            <td>
+                                @if (Model[i].ActionStatus == "Edit")
+                                {
+                                    @Html.TextBoxFor(model => Model[i].Direction, new { Style = "width:100px" })
+
+                                }
+                                else
+                                {
+                                    <label style="width:100px"> @Model[i].Direction</label>
+                                }
+                            </td>
+                            <td>
+                                @if (Model[i].ActionStatus == "Edit")
+                                {
+                                    @Html.TextBoxFor(model => Model[i].Editing, new { Style = "width:100px" })
+
+                                }
+                                else
+                                {
+                                    <label style="width:100px"> @Model[i].Editing</label>
+                                }
+                            </td>
+
+                            <td>
+                                @if (Model[i].ActionStatus == "Edit")
+                                {
+                                    @Html.TextBoxFor(model => Model[i].Performances, new { Style = "width:100px" })
+
+                                }
+                                else
+                                {
+                                    <label style="width:100px"> @Model[i].Performances</label>
+                                }
+                            </td>
+
+                            <td>
+                                @if (Model[i].ActionStatus == "Edit")
+                                {
+                                    @Html.TextBoxFor(model => Model[i].Writing, new { Style = "width:100px" })
+
+                                }
+                                else
+                                {
+                                    <label style="width:100px"> @Model[i].Writing</label>
+                                }
+                            </td>
+                           
+                            <td>
+
+                                <button type="button" value="Edit" class="btn btn-light" onclick="fnEditFromGrid(this)" data-assigned-id="@Model[i].MovieCode">Edit</button>
+                                <input type="button" value="Delete" class="btn btn-light" onhover="fnDeleteFromGrid()" />
+                            </td>
+
+                        </tr>
+
+
+
+                    }
+
+
+                }
+
+
+            </tbody>
+        </table>
+
+
+
+    </div>
+
+
+
+
+
+
+

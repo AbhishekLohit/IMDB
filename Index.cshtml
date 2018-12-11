@@ -1,0 +1,136 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @*<link href="~/StyleSheets/MainStyleSheet.css" rel="stylesheet" />*@
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <style>
+        body, html {
+            height: 100%;
+            margin:0px;
+        }
+        .appBackground {
+            position: relative;
+            background-image: url('../../Images/up-movie-wallpapers.jpg');
+            background-repeat: no-repeat;
+            background-size:cover;
+            height: 100%;
+            
+           
+        }
+        #textcolor{
+            color:white;
+        }
+
+        #transparentBg {
+            background-color: rgba(0,0,0,0) !important;
+            color: white;
+        }
+        #transparentButton {
+            background-color: Transparent;
+            background-repeat: no-repeat;
+            color: white;
+            cursor: pointer;
+            overflow: hidden;
+            outline: none;
+            border-color:white;
+        }
+        .logoimage {
+            background-image: url('../../Images/IMDBLogo.png');
+            height: 55px;
+            width: 100px;
+            margin-top: 10px;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="appBackground">
+        <div class="container">
+            <div class="logoimage">
+
+            </div>
+            
+            <div class="row" style="margin-top:120px">
+                <div class="col-md-4">
+                    <h2 id="textcolor">Welcome, my Friends</h2>
+                    <p id="textcolor">
+                        A hundred thousand welcomes. I could weep, And I could laugh. <br />
+                        I am light and heavy: Welcome
+
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <div class="d-flex justify-content-center h-100">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 id="textcolor">Login</h3>                                
+                            </div>
+                            <div class="card-body">
+                                <form>                                   
+                                    <div class="input-group form-group">                                      
+                                        <input type="text" class="form-control" placeholder="username" id="transparentBg">
+                                    </div>
+                                    <div class="input-group form-group">                                        
+                                        <input type="password" class="form-control" placeholder="password"  id="transparentBg">
+                                    </div>
+                                    <div class="row align-items-center remember" id="textcolor">
+                                        <input type="checkbox" >Remember Me
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Login" class="btn float-right login_btn" id="transparentButton" >
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-footer">                         
+                                <div class="d-flex justify-content-center h-100">
+                                    <a href="#">Forgot your password?</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">                   
+                    <div class="d-flex justify-content-center h-100">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 id="textcolor">First Time Here?</h3>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="input-group form-group">
+                                        <input type="text" class="form-control" placeholder="First and last name" id="transparentBg">
+                                    </div>
+                                    <div class="input-group form-group">
+                                        <input type="email" class="form-control" placeholder="E-mail" id="transparentBg">
+                                    </div>
+                                    <div class="input-group form-group">
+                                        <input type="password" class="form-control" placeholder="Password" id="transparentBg">
+                                    </div>
+                                   
+                                    <div class="form-group">
+                                        <input type="submit" value="Register" class="btn float-right login_btn" id="transparentButton">
+                                    </div>
+                                </form>
+                            </div>                          
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

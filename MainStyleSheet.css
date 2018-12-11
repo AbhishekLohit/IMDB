@@ -1,0 +1,25 @@
+﻿.LoginBody {
+    background-color:black;
+}
+
+body{
+    padding:0px;
+}
+
+.navbar {
+    position: relative;
+    z-index: 1000;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    padding-top: 100px;
+}
+
+.logoimage {
+    background-image: url('../../Images/IMDBLogo.png');
+    height: 55px;
+    width: 100px;
+    margin-top: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

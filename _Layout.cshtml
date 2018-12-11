@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/StyleSheets/MainStyleSheet.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+   
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+   
+</head>
+<body>
+    <div class="container">
+        <div class="navbar navbar-inverse" style="margin-bottom:0px" >
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <img src="~/Images/IMDBLogo.png" style="height:50px;width:85px" />                                                 
+                </div>
+                <div class="navbar-collapse collapse"  >
+                    <ul class="nav navbar-nav" style="padding-left:50px">                       
+                        <li class="dropdown" style="width:140px">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Movies,Tv & Showtime <span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="list-style-type:none;background-color:aliceblue;width:800px">
+                                <li>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        
+                                        <ul style="list-style-type:none;padding-left:10px">
+                                           <li style="color:#A58500"><b>Movies</b></></li>
+                                            <li><a href="#">In Theatres</a></li>
+                                            <li><a href="#">Sometime & Tickets </a></li>                                           
+                                            <li><a href="#">Trailers</a></li>                                            
+                                            <li><a href="#">Coming Soon</a></li>
+                                            <li><a href="#">Release Calender</a></li>
+                                            <li>@Html.ActionLink("Movies 2018", "About", "Home")</li>
+                                            <li><a href="#">Top Rated Indian Movies</a></li>
+                                            <li><a href="#">Most Popular movies</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><h5 style="color:#A58500"><b>Charts and Trends</b></h5></li>
+                                            <li><a href="#">Box Office </a></li>
+                                            <li><a href="#">Oscar Winners</a></li>
+                                            <li><a href="#">Most Popular By Genre</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3">
+                                        
+                                        <ul style="list-style-type:none;padding-left:10px">
+                                            <li><h5 style="color:#A58500"><b>TV & VIDEO</b></h5></li>                                            
+                                            <li><a href="#">IMDb TV</a></li>                                            
+                                            <li><a href="#">Top Rated TV Shows</a></li>                                         
+                                            <li><a href="#">Most Popular TV Shows</a></li>
+                                            <li><a href="#"> DVD & Blu-Ray</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><h5 style="color:#A58500"><b>SPECIAL FEATURES</b></h5></li>
+                                            <li><a href="#">Amazon Originals </a></li>
+                                            <li><a href="#">Superheroes</a></li>
+                                            <li><a href="#">Horror Guide</a></li>
+                                            <li><a href="#">IMDb Picks </a></li>
+                                            <li><a href="#">Family</a></li>
+                                            <li><a href="#">Video Games</a></li>
+                                            <li><a href="#">Marvel </a></li>
+                                           
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                        <img src="~/Images/rampage.jpg" style="width:385px;height:300px" />
+                                       
+                                    </div>
+                                </div>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class="dropdown" style="width:140px">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Celebs,Events & Photos <span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="list-style-type:none;background-color:aliceblue;width:500px">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-4">
+
+                                            <ul style="list-style-type:none">
+                                                <li><h3>Header</h3></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">One more separated link</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h5>Column1</h5>
+                                            <ul style="list-style-type:none">
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">One more separated link</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h5>Column1</h5>
+                                            <ul style="list-style-type:none">
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">One more separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="dropdown" style="width:140px">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">News & Community<span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="list-style-type:none;background-color:aliceblue;width:500px">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-4">
+
+                                            <ul style="list-style-type:none;padding-left:10px">
+                                                <li><h3>Header</h3></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">One more separated link</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4">
+                                            
+                                            <ul style="list-style-type:none;padding-left:10px">
+                                                <li><h3>Header</h3></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">One more separated link</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4">
+                                            
+                                            <ul style="list-style-type:none;padding-left:10px">
+                                                <li><h3>Header</h3></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">One more separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </li>     
+                        <li class="dropdown" style="width:140px;padding-top:0px">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Review & WishList<span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="list-style-type:none;background-color:aliceblue;width:500px">
+                               <li>
+                                   <div class="row">
+                                       <div class="col-md-4">
+                                           <ul style="list-style-type:none;padding-left:10px">
+                                               <li><h4>WishList</h4></li>
+                                               <li>@Html.ActionLink("Your WishList", "About", "Home")</li>
+                                               <li><a href="#">Chose from IMDB TOP 250</a></li>
+                                               <li><a href="#">Chose from IMDB Popular movies</a></li>
+                                           </ul>
+
+                                       </div>
+                                       <div class="col-md-4">
+                                           <ul style="list-style-type:none;padding-left:10px">
+                                               <li><h4>Your Reviews</h4></li>
+                                               <li>@Html.ActionLink("Review", "WishList", "Home")</li>
+                                               <li><a href="#">Chose from IMDB TOP 250</a></li>
+                                               <li><a href="#">Chose from IMDB Popular movies</a></li>
+                                           </ul>
+
+                                       </div>
+                                   </div>
+                                   
+                                   
+
+                               </li>
+                                                 
+                                                
+                                            
+
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-left" style="margin-top:20px">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+  
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+        
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+        function fnEditFromGrid(movieCode) {
+            debugger;
+            var movcode = $(movieCode).data('assigned-id');
+
+            $.ajax({
+
+                type: "POST",
+                url: '@Url.Action("WishListGrid", "Home")',
+                data: { movieCode: movcode },
+                dataType: "html",
+                //contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                  
+                    $('#bodyId').html("");
+                    $('#bodyId').html(data);
+                },
+                error: function (xhr) {
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+
+
+        }
+
+
+    </script>
+

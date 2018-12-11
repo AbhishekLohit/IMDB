@@ -1,0 +1,25 @@
+﻿
+
+<div class="container">
+    <h3 style="margin-top:30px">Review your Favourite Movies Here</h3>
+    <div style="margin-top:20px">
+
+        <div class="row">
+            <div class="col-md-4">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="exampleInputAmount">Search</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon glyphicon-facetime-video"></span> </div>
+                            <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon glyphicon-search"></span></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="padding-top:20px" id="bodyId">
+    @{Html.RenderAction("WishListGrid");}
+</div>
