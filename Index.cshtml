@@ -1,136 +1,111 @@
-﻿
-@{
-    Layout = null;
-}
+﻿@using IMDBApp.Models;
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-    @*<link href="~/StyleSheets/MainStyleSheet.css" rel="stylesheet" />*@
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <style>
-        body, html {
-            height: 100%;
-            margin:0px;
-        }
-        .appBackground {
-            position: relative;
-            background-image: url('../../Images/up-movie-wallpapers.jpg');
-            background-repeat: no-repeat;
-            background-size:cover;
-            height: 100%;
-            
-           
-        }
-        #textcolor{
-            color:white;
-        }
-
-        #transparentBg {
-            background-color: rgba(0,0,0,0) !important;
-            color: white;
-        }
-        #transparentButton {
-            background-color: Transparent;
-            background-repeat: no-repeat;
-            color: white;
-            cursor: pointer;
-            overflow: hidden;
-            outline: none;
-            border-color:white;
-        }
-        .logoimage {
-            background-image: url('../../Images/IMDBLogo.png');
-            height: 55px;
-            width: 100px;
-            margin-top: 10px;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-    </style>
-</head>
-<body>
-    <div class="appBackground">
-        <div class="container">
-            <div class="logoimage">
-
+<div class="container" style="border:1px solid;border-color:whitesmoke">
+    
+    <div class="row">
+        <div class="col-md-8" style="border:1px solid;border-radius:25px;border-color:beige;margin:20px">
+            <h3><b>Feature Film Released between 2018-01-01 and 2018-12-31 (Sorted by Popularity Ascending)</b></h3>
+            <div style="margin:0px 0px 20px 10px">
+                Sort by:
+                <a href="/search/title?title_type=feature&amp;year=2018-01-01,2018-12-31&amp;sort=moviemeter,desc"><strong>Popularity</strong>▲</a>
+                <span>|</span>           <a href="/search/title?title_type=feature&amp;year=2018-01-01,2018-12-31&amp;sort=alpha,asc">A-Z</a>
+                <span>|</span>           <a href="/search/title?title_type=feature&amp;year=2018-01-01,2018-12-31&amp;sort=user_rating,asc">User Rating</a>
+                <span>|</span>           <a href="/search/title?title_type=feature&amp;year=2018-01-01,2018-12-31&amp;sort=num_votes,asc">Number of Votes</a>
+                <span>|</span>           <a href="/search/title?title_type=feature&amp;year=2018-01-01,2018-12-31&amp;sort=boxoffice_gross_us,asc">US Box Office</a>
+                <span>|</span>           <a href="/search/title?title_type=feature&amp;year=2018-01-01,2018-12-31&amp;sort=runtime,asc">Runtime</a>
+                <span>|</span>           <a href="/search/title?title_type=feature&amp;year=2018-01-01,2018-12-31&amp;sort=year,asc">Year</a>
+                <span>|</span>           <a href="/search/title?title_type=feature&amp;year=2018-01-01,2018-12-31&amp;sort=release_date,asc">Release Date</a>
+                <span>|</span>           <a href="/search/title?title_type=feature&amp;year=2018-01-01,2018-12-31&amp;sort=your_rating_date,asc">Date of Your Rating</a>
+                <span>|</span>           <a href="/search/title?title_type=feature&amp;year=2018-01-01,2018-12-31&amp;sort=my_ratings,asc">Your Rating</a>
             </div>
-            
-            <div class="row" style="margin-top:120px">
-                <div class="col-md-4">
-                    <h2 id="textcolor">Welcome, my Friends</h2>
-                    <p id="textcolor">
-                        A hundred thousand welcomes. I could weep, And I could laugh. <br />
-                        I am light and heavy: Welcome
+            @if (Model.Count > 0)
+            {
+                for (int i = 1; i <= Model.Count; i++)
+                {
+                    {
+                        if (i % 2 != 0)
+                        {
+                            <div class="row" style="background-color:#f6f6f5;margin:0px 10px 0px 10px" >
+                                <div class="col-md-2">
 
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <div class="d-flex justify-content-center h-100">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 id="textcolor">Login</h3>                                
-                            </div>
-                            <div class="card-body">
-                                <form>                                   
-                                    <div class="input-group form-group">                                      
-                                        <input type="text" class="form-control" placeholder="username" id="transparentBg">
+                                    <img src="~/Images/Dunkirk.jpg" style="width:87px;height:118px;padding:10px" />
+                                </div>
+                                <div class=" col-md-9" style="padding:10px">
+                                    @i <label style="color:#136CB2;font-size:15px">@Model[i - 1].MovieName (@Model[i - 1].ReleaseYear)</label><br />
+                                    <div>
+                                        <span style="color:rgba(0,0,0,0.6);font-family:Verdana,Arial,sans-serif;font-size:11px">@Model[i - 1].Runtime | @Model[i - 1].genre</span>
+                                        <br />
+                                        <span>
+                                            <img src="~/Images/star.jpg" style="width:18px;height:18px;margin-right:3px" />@Model[i - 1].IMDBRating                                            
+                                        </span><br />
+                                        <p style="color:rgba(0,0,0,0.6);font-family:Verdana,Arial,sans-serif;font-size:11px">
+                                            @Model[i - 1].MovieDetails
+                                        </p>
+                                        <p style="font-size:11px;font-family:Verdana,Arial,sans-serif">
+                                            Director: <a href="">@Model[i - 1].Director</a> | Actor: <a href="">@Model[i - 1].Actor</a>  
+                                            <br /><br />
+                                            Gross: @Model[i - 1].BoxOfficeCollection$
+                                        </p>
+                                        
                                     </div>
-                                    <div class="input-group form-group">                                        
-                                        <input type="password" class="form-control" placeholder="password"  id="transparentBg">
-                                    </div>
-                                    <div class="row align-items-center remember" id="textcolor">
-                                        <input type="checkbox" >Remember Me
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="submit" value="Login" class="btn float-right login_btn" id="transparentButton" >
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="card-footer">                         
-                                <div class="d-flex justify-content-center h-100">
-                                    <a href="#">Forgot your password?</a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">                   
-                    <div class="d-flex justify-content-center h-100">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 id="textcolor">First Time Here?</h3>
+                        }
+                        else
+                        {
+                            <div class="row" style="background-color:#fbfbfb;margin:0px 10px 0px 10px">
+                                <div class="col-md-2">
+
+                                    <img src="~/Images/Dunkirk.jpg" style="width:87px;height:118px;padding:10px" />
+                                </div>
+                                <div class="col-md-9" style="padding:10px">
+                                    @i <label style="color:#136CB2;font-size:15px">@Model[i - 1].MovieName (@Model[i - 1].ReleaseYear)</label><br />
+                                    <div>
+                                        <span style="color:rgba(0,0,0,0.6);font-family:Verdana,Arial,sans-serif;font-size:11px">@Model[i - 1].Runtime | @Model[i - 1].genre
+                                        </span>
+                                        <br />
+                                        <span>
+                                            <img src="~/Images/star.jpg" style="width:18px;height:18px;margin-right:3px" />@Model[i - 1].IMDBRating
+
+                                        </span><br />
+                                        <p style="color:rgba(0,0,0,0.6);font-family:Verdana,Arial,sans-serif;font-size:11px">
+                                            @Model[i - 1].MovieDetails
+                                        </p>
+                                        <p style="font-size:11px;font-family:Verdana,Arial,sans-serif">
+                                            Director: <a href="">@Model[i - 1].Director</a> | Actor: <a href="">@Model[i - 1].Actor</a>  
+                                        <br /><br />
+                                            Gross: @Model[i - 1].BoxOfficeCollection$
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <form>
-                                    <div class="input-group form-group">
-                                        <input type="text" class="form-control" placeholder="First and last name" id="transparentBg">
-                                    </div>
-                                    <div class="input-group form-group">
-                                        <input type="email" class="form-control" placeholder="E-mail" id="transparentBg">
-                                    </div>
-                                    <div class="input-group form-group">
-                                        <input type="password" class="form-control" placeholder="Password" id="transparentBg">
-                                    </div>
-                                   
-                                    <div class="form-group">
-                                        <input type="submit" value="Register" class="btn float-right login_btn" id="transparentButton">
-                                    </div>
-                                </form>
-                            </div>                          
-                        </div>
-                    </div>
-                
-                </div>
-            </div>
+                        }
+                    }
+                }
+            }
+
+
+
         </div>
-        
+        <div class="col-md-4">
+
+        </div>
     </div>
-</body>
-</html>
+</div>
+<script type="text/javascript">
+    $('document').ready(function () {
+
+        $('input[name=rating]').click(function () {
+
+            // Grab value
+            alert($(this).val());
+
+           
+        });
+
+
+    })
+   
+
+</script>
+
