@@ -1,7 +1,13 @@
 ﻿@using IMDBApp.Models;
 @model List<MovieReview>
 
+<style>
 
+    td,th{
+        padding-left:15px;
+        padding-top:5px;
+    }
+</style>
     <div style="margin-top:30px">
         <table style="width:1140px;border:2px solid">
             <thead>
@@ -35,7 +41,7 @@
                             <td>
                                 @if (Model[i].ActionStatus == "Edit")
                                 {
-                                    @Html.TextBoxFor(model => Model[i].genre, new { Style = "width:100px" })
+                                    @Html.TextBoxFor(model => Model[i].genre, new { Style = "width:100px", id = "genreId" })
 
                                 }
                                 else
@@ -46,7 +52,7 @@
                             <td>
                                 @if (Model[i].ActionStatus == "Edit")
                                 {
-                                    @Html.TextBoxFor(model => Model[i].Direction, new { Style = "width:100px" })
+                                    @Html.TextBoxFor(model => Model[i].Direction, new { Style = "width:100px", id = "directionId" })
 
                                 }
                                 else
@@ -57,7 +63,7 @@
                             <td>
                                 @if (Model[i].ActionStatus == "Edit")
                                 {
-                                    @Html.TextBoxFor(model => Model[i].Editing, new { Style = "width:100px" })
+                                    @Html.TextBoxFor(model => Model[i].Editing, new { Style = "width:100px", id = "editingId" })
 
                                 }
                                 else
@@ -69,7 +75,7 @@
                             <td>
                                 @if (Model[i].ActionStatus == "Edit")
                                 {
-                                    @Html.TextBoxFor(model => Model[i].Performances, new { Style = "width:100px" })
+                                    @Html.TextBoxFor(model => Model[i].Performances, new { Style = "width:100px", id = "performanceId" })
 
                                 }
                                 else
@@ -81,7 +87,7 @@
                             <td>
                                 @if (Model[i].ActionStatus == "Edit")
                                 {
-                                    @Html.TextBoxFor(model => Model[i].Writing, new { Style = "width:100px" })
+                                    @Html.TextBoxFor(model => Model[i].Writing, new { Style = "width:100px" , id = "writingId" })
 
                                 }
                                 else
@@ -91,9 +97,19 @@
                             </td>
                            
                             <td>
+                                @if (Model[i].ActionStatus == "Edit")
+                                {
+                                    @*<button type="button" value="Update" class="btn btn-light" onclick="fnUpdateFromGrid('abc','abc','3','4','4','4')">Update</button>*@
+                                    <input type="button" value="Update" class="btn btn-light" onclick="fnUpdateFromGrid(this)" data-assigned-id="@Model[i].MovieCode"/>
+                                    <input type="button" value="Delete" class="btn btn-light" onhover="fnDeleteFromGrid()" />
 
-                                <button type="button" value="Edit" class="btn btn-light" onclick="fnEditFromGrid(this)" data-assigned-id="@Model[i].MovieCode">Edit</button>
-                                <input type="button" value="Delete" class="btn btn-light" onhover="fnDeleteFromGrid()" />
+                                }
+                                else
+                                {
+                                    <button type="button" value="Edit" class="btn btn-light" onclick="fnEditFromGrid(this)" data-assigned-id="@Model[i].MovieCode">Edit</button>
+                                    <input type="button" value="Delete" class="btn btn-light" onhover="fnDeleteFromGrid()" />
+                                }
+
                             </td>
 
                         </tr>

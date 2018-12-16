@@ -23,3 +23,79 @@
 <div style="padding-top:20px" id="bodyId">
     @{Html.RenderAction("WishListGrid");}
 </div>
+
+<script type="text/javascript">
+
+        function fnUpdateFromGrid(movieCode) {
+            debugger;
+            
+            var genre = $('#genreId').val();           
+            var performance = $('#performanceId').val();
+            var direction = $('#directionId').val();
+            var editing = $('#editingId').val();
+            var writing = $('#writingId').val();
+            var moviecode = $(movieCode).data('assigned-id');
+
+
+
+
+
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("WishListGrid", "Home")',
+                data: { movieCode: moviecode, action: 'Update', genre: genre, performance: performance, direction: direction, editing: editing, writing: writing },
+                dataType: "html",
+                async: false,
+                // contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+
+                    $('#bodyId').html("");
+                    $('#bodyId').html(data);
+                },
+                error: function (xhr) {
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+
+
+        }
+
+
+
+
+
+
+        function fnEditFromGrid(movieCode) {
+            debugger;
+            var movcode = $(movieCode).data('assigned-id');
+
+
+            $.ajax({
+
+                type: "POST",
+                url: '@Url.Action("WishListGrid", "Home")',
+                data: { movieCode: movcode, action: 'Edit' },
+                dataType: "html",
+                async: false,
+                //contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+
+                    $('#bodyId').html("");
+                    $('#bodyId').html(data);
+                },
+                error: function (xhr) {
+                    alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
+                }
+            });
+
+
+        }
+
+
+
+
+
+
+
+</script>

@@ -70,7 +70,7 @@ namespace BusinessLayer
             }
         }
 
-        public List<MovieReviewEntity> GetReviewList()
+        public List<MovieReviewEntity> GetReviewList(string movieCode = null, string action = null ,  string genre = null, string performance = null, string direction =null, string editing =null , string writing =null)
         {
             List<MovieReviewEntity> objMovieList = new List<MovieReviewEntity>();
             string connectionString =
@@ -81,25 +81,42 @@ namespace BusinessLayer
                 SqlCommand cmd = new SqlCommand("spIMDBGetReviewList", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                //SqlParameter paramName = new SqlParameter();
-                //paramName.ParameterName = "@Name";
-                //paramName.Value = employee.Name;
-                //cmd.Parameters.Add(paramName);
 
-                //SqlParameter paramGender = new SqlParameter();
-                //paramGender.ParameterName = "@Gender";
-                //paramGender.Value = employee.Gender;
-                //cmd.Parameters.Add(paramGender);
+                SqlParameter paramCode = new SqlParameter();
+                paramCode.ParameterName = "@MovieCode";
+                paramCode.Value = movieCode;
+                cmd.Parameters.Add(paramCode);
 
-                //SqlParameter paramCity = new SqlParameter();
-                //paramCity.ParameterName = "@City";
-                //paramCity.Value = employee.City;
-                //cmd.Parameters.Add(paramCity);
+                SqlParameter paramAction = new SqlParameter();
+                paramAction.ParameterName = "@Action";
+                paramAction.Value = action;
+                cmd.Parameters.Add(paramAction);
 
-                //SqlParameter paramDateOfBirth = new SqlParameter();
-                //paramDateOfBirth.ParameterName = "@DateOfBirth";
-                //paramDateOfBirth.Value = employee.DateOfBirth;
-                //cmd.Parameters.Add(paramDateOfBirth);
+
+                SqlParameter paramGenre = new SqlParameter();
+                paramGenre.ParameterName = "@Genre";
+                paramGenre.Value = genre;
+                cmd.Parameters.Add(paramGenre);
+
+                SqlParameter paramPerformance = new SqlParameter();
+                paramPerformance.ParameterName = "@Performance";
+                paramPerformance.Value = Convert.ToInt32(performance);
+                cmd.Parameters.Add(paramPerformance);
+
+                SqlParameter paramDirection = new SqlParameter();
+                paramDirection.ParameterName = "@Direction";
+                paramDirection.Value = Convert.ToInt32(direction);
+                cmd.Parameters.Add(paramDirection);
+
+                SqlParameter paramEditing = new SqlParameter();
+                paramEditing.ParameterName = "@Editing";
+                paramEditing.Value = Convert.ToInt32(editing);
+                cmd.Parameters.Add(paramEditing);
+
+                SqlParameter paramWriting = new SqlParameter();
+                paramWriting.ParameterName = "@Writing";
+                paramWriting.Value = Convert.ToInt32(writing);
+                cmd.Parameters.Add(paramWriting);
 
                 con.Open();
                 dr = cmd.ExecuteReader();

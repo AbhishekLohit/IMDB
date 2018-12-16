@@ -22,7 +22,7 @@ namespace IMDBApp.Controllers
 
         }
 
-        public ActionResult WishListGrid(string movieCode = null)
+        public ActionResult WishListGrid(string movieCode = null,string action = null, string genre = null , string performance = null, string direction = null , string editing = null, string writing = null)
         {
             HomeBusinessLayer objBL = new HomeBusinessLayer();
             IList<MovieReviewEntity> objEntity = new List<MovieReviewEntity>();
@@ -34,22 +34,37 @@ namespace IMDBApp.Controllers
             {
                 objEntity = objBL.GetReviewList();
                 objModal = MovieReviewMapper(objEntity);
-                return PartialView("WishListGrid", objModal);
+               // return PartialView("WishListGrid", objModal);
             }
             else
             {
-                objEntity = objBL.GetReviewList();
-                objModal = MovieReviewMapper(objEntity);
-                foreach (var tom in objModal.Where(w => w.MovieCode == movieCode))
+                if (action == "Edit")
                 {
-                    tom.ActionStatus = "Edit";
+                    objEntity = objBL.GetReviewList();
+                    objModal = MovieReviewMapper(objEntity);
+                    foreach (var tom in objModal.Where(w => w.MovieCode == movieCode))
+                    {
+                        tom.ActionStatus = "Edit";
+                    }
+                   // return PartialView("WishListGrid", objModal);
                 }
-                return PartialView("WishListGrid", objModal);
+                else if( action == "Update")
+                {
+                    objEntity = objBL.GetReviewList(movieCode,action,genre,performance,direction,editing,writing);
+                    objModal = MovieReviewMapper(objEntity);
+                    //foreach (var tom in objModal.Where(w => w.MovieCode == movieCode))
+                    //{
+                    //    tom.ActionStatus = "Update";
+                    //}
+                   // return PartialView("WishListGrid", objModal);
+
+                }
 
             }
-            
+            return PartialView("WishListGrid", objModal);
 
-           
+
+
 
         }
 
